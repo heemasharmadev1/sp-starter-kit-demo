@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "277282d0-debb-42d6-b4b3-30ec543964fd",
+  "alias": "pnpRecentlyVisitedSites",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "Recently Visited Sites" },
+    "description": { "default": "Recently visited sites for user" },
+    "officeFabricIconFontName": "SearchAndApps",
+    "properties": {
+      "title": "Recent Sites"
+    }
+  }]
+}

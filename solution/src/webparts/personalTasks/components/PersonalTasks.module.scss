@@ -1,0 +1,80 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+.personalTasks {
+  .webPartTitle, .viewAll, .groupTitle {
+    padding-left: 10px;
+  }
+
+  .groupTitle {
+    @include ms-font-m-plus;
+    @include ms-fontWeight-semibold;
+    margin-top: 1em;
+  }
+
+  .task {
+    display: block;
+    padding: 0.5em 10px;
+    color: $ms-color-black;
+    @include ms-fontWeight-semilight;
+
+    &:hover {
+      color: inherit;
+      background: $ms-color-neutralLight;
+    }
+
+    .title {
+      @include ms-fontWeight-regular;
+    }
+
+    .dueDateWrapper {
+      display: flex;
+    }
+
+    .dueDateTime {
+      display: inline;
+      @include ms-font-s-plus;
+      color: $ms-color-neutralSecondary;
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      line-height: 20px;
+
+      i {
+        display: block;
+      }
+
+      &.isLate {
+        background: #d63867;
+        color: #fff;
+        padding: .1em .4em;
+      }
+
+      .label {
+        padding-left: 0.5em;
+      }
+    }
+  }
+
+  .completed {
+    .title {
+      text-decoration: line-through;
+    }
+  }
+
+  .viewAll {
+    display: block;
+    margin-top: 1em;
+  }
+
+  .noTasks {
+    @include ms-font-m;
+    padding-left: 10px;
+  }
+
+  .error {
+    @include ms-font-m;
+    color: $ms-color-alert;
+    padding-left: 10px;
+  }
+}

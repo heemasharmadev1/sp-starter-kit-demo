@@ -1,0 +1,25 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+.siteInformation {
+
+  .siteInformationContent {
+    text-align: left;
+  }
+
+  .siteTitle {
+    @include ms-font-xl;
+    @include ms-fontColor-black;
+    font-weight: bold;
+  }
+
+  .siteOrganization {
+    @include ms-font-l;
+    @include ms-fontColor-black;
+  }
+
+  .siteContact {
+    @include ms-font-l;
+    @include ms-fontColor-black;
+    margin-top: 5px;
+  }
+}

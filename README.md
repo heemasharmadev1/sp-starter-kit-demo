@@ -4,7 +4,7 @@ This is a solution designed for SharePoint Online which provides numerous web pa
 
 > Please be aware that **documentation work is still in progress** and we will keep on provide more guidance and input around covered capabilities in this solution. In the meantime, please submit issues and questions using the [issues list](../../issues) to help us provide better documentation and guidance. Thanks for your patience!
 
-![PnP Starter Pack Front Page](./assets/images/default-front-page.png)
+![PnP Starter Pack Front Page](./assets/images/default-front-page-contoso.png)
 
 ## Objectives of this solution
 
@@ -16,7 +16,7 @@ SharePoint Communication Sites have great out-of-the-box capabilities, but the o
 - Implementation of different customizations for SharePoint Online
 - Usage of Office UI Fabric and reusable PnP SPFx controls within the customizations
 
-> Additional high resolution screenshots are also available: [front page](./assets/images/hihg-res-default-home-page.png) and [front page with extended footer](./assets/images/hihg-res-default-home-page-extended-footer.png).
+> Additional high resolution screenshots are also available: [front page](./assets/images/high-res-default-home-page-contoso.png).
 
 
 ## Pre-requirements
@@ -35,12 +35,10 @@ Here are current pre-requirements for making this solution work in your tenant.
 
 ## Getting started
 
-Minimum path to success: The following steps will help you get started in any tenant as fast as possible:
+Shortest path to success: The following steps will help you get started in any tenant as fast as possible:
 
 - Ensure that you meet the [requirements for SharePoint Framework development](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-development-environment) and are using the latest version of [PnP PowerShell](https://docs.microsoft.com/en-us/powershell/sharepoint/sharepoint-pnp/sharepoint-pnp-cmdlets?view=sharepoint-ps)
 - Prepare your tenant, by accomplishing the tasks highlighted in document [Preparing your tenant for the PnP SharePoint Starter Kit](./documentation/tenant-settings.md).
-- Upload and deploy the [`sharepoint-starter-kit.sppkg`](./package/sharepoint-starter-kit.sppkg) from the [`/package`](./package) folder to your tenant app catalog
-    - After deploying the .sppkg package to the tenant app catalog, approve the requested API permissions. [Approving third party API access](./documentation/api-management.md).
 - Open PowerShell, and use PnP PowerShell to connect to any site in your tenant with the [`Connect-PnPOnline` cmdlet](https://docs.microsoft.com/en-us/powershell/module/sharepoint-pnp/connect-pnponline?view=sharepoint-ps) using your own tenant url
 
 ```powershell
@@ -52,14 +50,14 @@ Connect-PnPOnline https://contosodemosk.sharepoint.com
     - If you run into errors during provisioning, refer to ['Common SP Starter Kit Provisioning results'](./documentation/common-provision-results.md) for additional suggestions and common mistakes
 
 ```powershell
-.\deploy.ps1 -TenantUrl https://contosodemosk.sharepoint.com -SitePrefix demo
+Apply-PnPProvisioningHierarchy -Path starterkit.pnp -Parameters @{"SiteUrlPrefix"="demo"}
 ```
 
-This will provision 3 site collections with urls of `/sites/demoportal`, `/sites/demohr`, and `/sites/demomarketing`. Your urls may vary depending on the SitePrefix you use.
+This will provision 3 site collections with urls of `/sites/demoportal`, `/sites/demohr`, and `/sites/demomarketing`. Your urls may vary depending on the SitePrefix you use and the managed path you selected for team sites in your tenant administration (this defaults to 'sites').
 
 
-> Notice that this script also adds tenant level settings like themes, site designs, taxonomy term sets, and other adjustments. Therefore, it is recommended to test the script in an **isolated test tenant and not immediately execute it within your production environment**. Nevertheless, a cleanup script will come shortly.
-
+> Notice that the starter kit also adds tenant level settings like themes, site designs, taxonomy term sets, and other adjustments. Therefore, it is recommended to test the starter kit in an **isolated test tenant and not immediately execute it within your production environment**.
+ 
 ## Custom Web Parts
 
 Here are the custom web parts currently included in the solution package.
@@ -69,7 +67,7 @@ Pic |  Web Part |  Description  | Code
 ![](assets/images/components/part-banner.png) | [Banner](documentation/components/wp-banner.md) | Creates a banner with an image and overlaid text. | [code](solution/src/webparts/banner/bannerwebpart.ts)
 ![](assets/images/components/part-followed-sites.png) | [Followed Sites](documentation/components/wp-followed-sites.md) | Shows the list of sites which particular user is following | [code](solution/src/webparts/followedSites/FollowedSitesWebPart.ts)
 ![](assets/images/components/part-links.png) | [Links](documentation/components/wp-links.md)  | Link list web part which is using collection data editor and stores the links in web part properties | [code](solution/src/webparts/links/LinksWebPart.ts)
-![](assets/images/components/part-lob-integration.png) | LOB integration | Sample web part to surface LOB information from API hosted in Azure. | [code](solution/src/webparts/lobIntegration/LobIntegrationWebPart.ts)
+![](assets/images/components/part-lob-integration.png) | [LOB integration](documentation/components/wp-lob-integration.md) | Sample web part to surface LOB information from API hosted in Azure. | [code](solution/src/webparts/lobIntegration/LobIntegrationWebPart.ts)
 ![](assets/images/components/part-people-directory.png) | [People Directory](documentation/components/wp-people-directory.md) | People directory web part uses the people search API to get list of people to show.  | [code](solution/src/webparts/peopleDirectory/PeopleDirectoryWebPart.ts)
 ![](assets/images/components/part-personal-calendar.png) | [Personal Calendar](documentation/components/wp-personal-calendar.md) | Shows upcoming calendar meetings for the particular user using Microsoft Graph. | [code](solution/src/webparts/personalCalendar/PersonalCalendarWebPart.ts)
 ![](assets/images/components/part-personal-contacts.png) | [Personal Contacts](documentation/components/wp-personal-contacts.md) | Personal contacts for particular user using Microsoft Graph. | [code](solution/src/webparts/personalContacts/PersonalContactsWebPart.ts)

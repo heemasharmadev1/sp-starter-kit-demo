@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "ab30ff0a-9241-4d5d-8c6f-1dc07b1d1053",
+  "alias": "pnpBanner",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "supportsFullBleed": true,
+  "requiresCustomScript": false,
+  "hiddenFromToolbox": true,
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "Banner" },
+    "description": { "default": "Renders a banner style presentation with text and image" },
+    "officeFabricIconFontName": "Photo2",
+    "properties": {
+      "bannerText": "",
+      "bannerImage": "",
+      "bannerLink": "",
+      "bannerHeight": 280,
+      "useParallax": true
+    }
+  }]
+}

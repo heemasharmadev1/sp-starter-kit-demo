@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "9a151252-c744-4dc6-94f7-a574dda413d6",
+  "alias": "pnpRecentContacts",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "Recent contacts" },
+    "description": { "default": "Lists recent contacts for user" },
+    "officeFabricIconFontName": "Contact",
+    "properties": {
+      "title": "Recent contacts",
+      "nrOfContacts": 5
+    }
+  }]
+}
