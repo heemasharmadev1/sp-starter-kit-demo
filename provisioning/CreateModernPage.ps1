@@ -29,6 +29,9 @@ if ($Credentials -eq $null) {
 }
 if($SiteUrl)
 {	
+    Connect-PnPOnline -Url $SiteUrl -Credentials $Credentials
+    Write-Host "Connection not created" -ForegroundColor Red
+    
 	# $ArticlePageName = Read-Host 'What is name of the Page for Article Page Layout'	
 	# $IsPage = Get-PnPClientSidePage -Identity $ArticlePageName -ErrorAction SilentlyContinue
 	# if($IsPage -eq $null){
@@ -93,11 +96,12 @@ if($SiteUrl)
 	#Add-PnPClientSideWebPart -Page "Home" -DefaultWebPartType People -Section 1 -column 1 -WebPartProperties $wp
 	
 	#Add TEXT webpart to page
-	Add-PnPClientSideText -Page "Home" -Text "This is testing the client side Text webpart"	
+	Add-PnPClientSideText -Page "TestingHome" -Text "This is testing the client side Text webpart"	
 	
 	#Finally publish the page
-	Set-PnPClientSidePage -Identity "Home" -Publish
+	Set-PnPClientSidePage -Identity "TestingHome" -Publish
 	
 	#Get-PnPWebPart -ServerRelativePageUrl "/sites/demomarketing/SitePages/Article.aspx"
+
+    Write-Host "Done." -ForegroundColor Green
 }
-Write-Host "Done." -ForegroundColor Green
